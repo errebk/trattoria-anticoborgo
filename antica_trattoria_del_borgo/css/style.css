@@ -517,32 +517,32 @@ h2 {
     }
 
     /* Menu Section Titles Mobile Override */
+    /* Menu Section Titles Mobile Override */
     .title-card {
-        flex: 0 0 70vw !important;
-        /* Fixed width based on viewport width */
-        width: 70vw !important;
-        height: 70vw !important;
-        /* Force exact square */
-        aspect-ratio: 1 / 1;
+        flex: 0 0 auto !important;
+        /* Restore auto width */
+        height: 50vh;
+        /* Match other cards */
+        aspect-ratio: auto;
+        /* Remove square constraint */
+        width: auto !important;
         justify-content: center;
         align-items: center;
-        align-self: center;
-        /* Center strictly vertically in the container */
+        align-self: auto;
         margin-right: 15px;
-        /* Maintain spacing */
     }
 
     .title-card h2 {
-        font-size: 16vw !important;
-        /* Slightly smaller to fit perfectly */
-        line-height: 0.9;
-        word-break: break-word;
+        font-size: 10vw !important;
+        /* Significantly reduced font size as requested */
+        line-height: 1.2;
+        word-break: normal;
     }
 
     .title-card .smaller {
-        font-size: 5vw !important;
+        font-size: 4vw !important;
         display: block;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
     }
 }
 

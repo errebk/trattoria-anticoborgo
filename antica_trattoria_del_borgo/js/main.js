@@ -44,36 +44,33 @@ function initMenuScroll() {
     ScrollTrigger.matchMedia({
 
         // DESKTOP: ScrollTrigger Pinning + Arrows
+        // DESKTOP: Draggable + Arrows (No Pinning)
         "(min-width: 769px)": function () {
-            // Horizontal Scroll Animation
             const maxScroll = menuTrack.scrollWidth - window.innerWidth;
 
-            const scrollTween = gsap.to(menuTrack, {
-                x: -maxScroll,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "#menu-section",
-                    pin: true,
-                    scrub: 1, // Momentum scroll
-                    start: "top top",
-                    end: () => "+=" + maxScroll, // Scroll distance equals content width
-                    invalidateOnRefresh: true,
-                    id: "menuScroll"
-                }
+            // 1. Enable Draggable for Desktop
+            Draggable.create(menuTrack, {
+                type: "x",
+                bounds: { minX: -maxScroll, maxX: 0 },
+                inertia: true,
+                edgeResistance: 0.5,
+                cursor: "grab",
+                activeCursor: "grabbing"
             });
 
-            // Arrow Navigation Logic
-            const scrollAmount = window.innerHeight; // Scroll one viewport height per click
+            // 2. Arrow Navigation (Moves track X instead of Window Scroll)
+            const slideAmount = window.innerWidth * 0.4; // Scroll 40% of screen per click
 
             const prevBtn = document.querySelector(".prev-arrow");
             if (prevBtn) {
-                prevBtn.onclick = () => {
-                    gsap.to(window, {
-                        scrollTo: {
-                            y: window.scrollY - scrollAmount,
-                            autoKill: true
-                        },
-                        duration: 1,
+                // Remove previous event listeners if any (though matchMedia cleans up)
+                prevBtn.onclick = (e) => {
+                    e.preventDefault();
+                    const currentX = gsap.getProperty(menuTrack, "x");
+                    const newX = Math.min(currentX + slideAmount, 0); // Clamp at 0
+                    gsap.to(menuTrack, {
+                        x: newX,
+                        duration: 0.5,
                         ease: "power2.out"
                     });
                 };
@@ -81,13 +78,13 @@ function initMenuScroll() {
 
             const nextBtn = document.querySelector(".next-arrow");
             if (nextBtn) {
-                nextBtn.onclick = () => {
-                    gsap.to(window, {
-                        scrollTo: {
-                            y: window.scrollY + scrollAmount,
-                            autoKill: true
-                        },
-                        duration: 1,
+                nextBtn.onclick = (e) => {
+                    e.preventDefault();
+                    const currentX = gsap.getProperty(menuTrack, "x");
+                    const newX = Math.max(currentX - slideAmount, -maxScroll); // Clamp at maxScroll
+                    gsap.to(menuTrack, {
+                        x: newX,
+                        duration: 0.5,
                         ease: "power2.out"
                     });
                 };
@@ -158,16 +155,7 @@ gsap.to(".hero-image-wrapper", {
     }
 });
 
-gsap.to(".floating-img", {
-    y: -100,
-    rotation: 0,
-    scrollTrigger: {
-        trigger: ".manifesto",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1
-    }
-});
+
 
 // Menu Toggle Scroll Logic
 const menuToggle = document.querySelector(".menu-toggle");
