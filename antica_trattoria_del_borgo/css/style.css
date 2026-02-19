@@ -470,43 +470,50 @@ h2 {
     }
 
     .hero-title {
-        font-size: 25vw;
-        /* Much larger for ATB */
+        font-size: 20vw !important;
+        /* Slightly smaller for balance */
     }
 
     .manifesto {
         padding: 10vh 2rem;
-        /* Better horizontal spacing */
     }
 
     .manifesto-text {
         font-size: 1.2rem;
         text-align: left;
-        /* Easier to read on mobile */
     }
 
     .drop-cap {
         font-size: 4rem;
         margin-top: 5px;
-        /* Align better */
     }
 
     .floating-img {
         width: 50vw;
         opacity: 0.4;
-        /* Fade it out a bit more so text is readable */
     }
 
     .menu-scrollbar-container {
         width: 80vw;
         left: 10vw;
         bottom: 15vh;
-        /* Move up slightly */
+        background: rgba(255, 255, 255, 0.1);
+        /* Subtle background */
+        padding: 8px;
+        border-radius: 20px;
+        backdrop-filter: blur(5px);
+        /* Modern touch */
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .email-link {
         font-size: 8vw;
-        /* Larger tap target */
+    }
+
+    /* Reservation Title Mobile Override */
+    .reservation-content h2 {
+        font-size: 12vw !important;
+        /* Match impact of other titles */
     }
 }
 
