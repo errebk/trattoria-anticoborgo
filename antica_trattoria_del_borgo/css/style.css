@@ -262,53 +262,7 @@ h2 {
     gap: 10px;
 }
 
-/* Arrows Styles */
-.menu-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: transparent;
-    border: 1px solid var(--text-color);
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 101;
-    transition: all 0.3s ease;
-    opacity: 0.7;
-}
 
-.menu-arrow:hover {
-    background: var(--accent-color);
-    border-color: var(--accent-color);
-    color: #000;
-    opacity: 1;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.prev-arrow {
-    left: 2rem;
-}
-
-.next-arrow {
-    right: 2rem;
-}
-
-@media (max-width: 768px) {
-    .menu-arrow {
-        display: none;
-        /* Hide arrows on mobile */
-    }
-
-    .menu-scrollbar-container {
-        display: flex;
-        /* Show scrollbar on mobile */
-    }
-}
 
 .menu-scrollbar-track {
     width: 100%;
