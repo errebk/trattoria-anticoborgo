@@ -317,7 +317,8 @@ h2 {
 .menu-track {
     display: flex;
     padding-left: 10vw;
-    gap: 2rem;
+    gap: 5vw;
+    /* Increased gap */
     width: max-content;
     touch-action: pan-y;
     will-change: transform;
@@ -339,12 +340,15 @@ h2 {
 }
 
 .menu-card {
-    flex: 0 0 25vw;
-    /* Smaller cards to see more of them */
+    flex: 0 0 30vw;
+    /* Wider cards */
+    min-width: 350px;
+    /* Minimum width for readability */
     height: 60vh;
     position: relative;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
-    padding-right: 2rem;
+    padding-right: 3rem;
+    /* More padding inside card */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -352,7 +356,8 @@ h2 {
 
 .title-card {
     border: none;
-    flex: 0 0 15vw;
+    flex: 0 0 20vw;
+    /* Slightly wider title card */
 }
 
 .title-card h2 {
@@ -369,7 +374,8 @@ h2 {
 }
 
 .dish-card .card-image {
-    height: 60%;
+    height: 45%;
+    /* Reduced image height to give space to text */
     width: 100%;
     overflow: hidden;
     margin-bottom: 2rem;
@@ -390,7 +396,8 @@ h2 {
 }
 
 .card-content {
-    opacity: 0.7;
+    opacity: 0.85;
+    /* Increased base opacity */
     transition: opacity 0.3s;
 }
 
@@ -399,11 +406,25 @@ h2 {
 }
 
 .card-content h3 {
-    font-family: var(--font-heading);
     font-size: 1.5rem;
-    /* Adjusted size */
-    margin-bottom: 0.5rem;
-    color: #fff;
+    /* Larger title */
+    margin-bottom: 0.8rem;
+    color: var(--accent-color);
+}
+
+.card-content p {
+    font-size: 1.1rem;
+    /* Larger description */
+    line-height: 1.6;
+    /* Better line height */
+    margin-bottom: 1rem;
+}
+
+font-family: var(--font-heading);
+font-size: 1.5rem;
+/* Adjusted size */
+margin-bottom: 0.5rem;
+color: #fff;
 }
 
 .card-content p {
