@@ -1,7 +1,5 @@
 // Initialize GSAP ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
-
-
+gsap.registerPlugin(ScrollTrigger, Draggable, ScrollToPlugin);
 
 // Loading Animation
 const tlLoader = gsap.timeline();
@@ -21,7 +19,11 @@ tlLoader.to('.loader-text span', {
     .to('.loader', {
         y: '-100%',
         duration: 1,
-        ease: 'power2.inOut'
+        ease: 'power2.inOut',
+        onComplete: () => {
+            // Force refresh after loader finishes to ensure correct pinning positions
+            ScrollTrigger.refresh();
+        }
     })
     .from('.hero-title span', {
         y: 100,
@@ -37,11 +39,6 @@ const menuTrack = document.querySelector(".menu-track");
 const scrollThumb = document.querySelector(".menu-scrollbar-thumb");
 const scrollTrack = document.querySelector(".menu-scrollbar-track");
 
-// Register Draggable
-gsap.registerPlugin(Draggable);
-
-// Initialize Scrollbar logic
-// Initialize Scrollbar logic
 // Initialize Scrollbar logic
 function initMenuScroll() {
     ScrollTrigger.matchMedia({

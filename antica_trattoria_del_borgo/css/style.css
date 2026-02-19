@@ -340,6 +340,8 @@ h2 {
     gap: 2rem;
     width: max-content;
     /* Force correct scroll width */
+    touch-action: pan-y;
+    /* Allow vertical scroll, let Draggable handle horizontal */
     /* Reduced gap for better density */
 }
 
