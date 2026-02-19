@@ -515,6 +515,18 @@ h2 {
         font-size: 12vw !important;
         /* Match impact of other titles */
     }
+
+    /* Menu Section Titles Mobile Override */
+    .title-card h2 {
+        font-size: 25vw !important;
+        /* Make sure they are readable */
+        line-height: 1.1;
+    }
+
+    .title-card .smaller {
+        font-size: 8vw !important;
+        /* Make subtitle readable too */
+    }
 }
 
 /* Reservation Section */
