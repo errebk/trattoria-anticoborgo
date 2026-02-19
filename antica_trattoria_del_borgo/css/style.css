@@ -381,8 +381,9 @@ h2 {
     overflow: hidden;
     margin-bottom: 1.5rem;
     border-radius: 4px;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
-    /* DEPTH */
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.6),
+        -5px -5px 15px rgba(255, 255, 255, 0.05);
+    /* ENHANCED DEPTH */
     transform: perspective(1000px) rotateY(5deg);
     /* Subtle 3D turn */
     transition: all 0.5s ease;
@@ -390,7 +391,7 @@ h2 {
 
 .dish-card:hover .card-image {
     transform: perspective(1000px) rotateY(0deg) scale(1.02);
-    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.7);
+    box-shadow: 25px 25px 60px rgba(0, 0, 0, 0.8);
 }
 
 .dish-card img {
@@ -407,8 +408,8 @@ h2 {
 }
 
 .card-content {
-    opacity: 0.85;
-    /* Increased base opacity */
+    opacity: 0.9;
+    /* Higher opacity for readability */
     transition: opacity 0.3s;
 }
 
@@ -417,22 +418,27 @@ h2 {
 }
 
 .card-content h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    /* Slightly smaller */
+    margin-bottom: 0.6rem;
     color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .card-content p {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    /* Slightly smaller */
     line-height: 1.5;
-    margin-bottom: 0.5rem;
-    color: #ddd;
+    margin-bottom: 0.8rem;
+    color: #e0e0e0;
+    /* Brighter text */
 }
 
 .price {
     display: block;
     margin-top: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    /* Slightly smaller */
     font-family: var(--font-heading);
     color: var(--accent-color);
 }
