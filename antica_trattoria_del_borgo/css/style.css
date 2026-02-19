@@ -294,6 +294,7 @@ h2 {
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
     pointer-events: auto;
     /* Ensure clickable */
+    touch-action: none;
 }
 
 .menu-scrollbar-thumb:active {
