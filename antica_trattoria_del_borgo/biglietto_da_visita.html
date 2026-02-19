@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Mario | Web Designer</title>
+              <link rel="preconnect" href="https://fonts.googleapis.com">
+              <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+              <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+                            rel="stylesheet">
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+              <style>
+                            :root {
+                                          --primary: #00f2ea;
+                                          --secondary: #ff0050;
+                                          --bg-dark: #0f0c29;
+                                          --glass-bg: rgba(255, 255, 255, 0.05);
+                                          --glass-border: rgba(255, 255, 255, 0.1);
+                                          --text-main: #ffffff;
+                                          --text-muted: #rgba(255, 255, 255, 0.7);
+                            }
+
+                            * {
+                                          margin: 0;
+                                          padding: 0;
+                                          box-sizing: border-box;
+                            }
+
+                            body {
+                                          font-family: 'Montserrat', sans-serif;
+                                          background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+                                          min-height: 100vh;
+                                          display: flex;
+                                          justify-content: center;
+                                          align-items: center;
+                                          color: var(--text-main);
+                                          overflow: hidden;
+                                          position: relative;
+                            }
+
+                            /* Ambient glowing orbs */
+                            .orb {
+                                          position: absolute;
+                                          width: 300px;
+                                          height: 300px;
+                                          border-radius: 50%;
+                                          filter: blur(80px);
+                                          z-index: 0;
+                                          animation: float 10s infinite ease-in-out;
+                                          opacity: 0.6;
+                            }
+
+                            .orb-1 {
+                                          background: var(--primary);
+                                          top: -50px;
+                                          left: -50px;
+                                          animation-delay: 0s;
+                            }
+
+                            .orb-2 {
+                                          background: var(--secondary);
+                                          bottom: -50px;
+                                          right: -50px;
+                                          animation-delay: 5s;
+                            }
+
+                            @keyframes float {
+
+                                          0%,
+                                          100% {
+                                                        transform: translate(0, 0);
+                                          }
+
+                                          50% {
+                                                        transform: translate(30px, 50px);
+                                          }
+                            }
+
+                            /* Glassmorphism Card */
+                            .card {
+                                          position: relative;
+                                          z-index: 1;
+                                          width: 90%;
+                                          max-width: 400px;
+                                          background: var(--glass-bg);
+                                          backdrop-filter: blur(16px);
+                                          -webkit-backdrop-filter: blur(16px);
+                                          border: 1px solid var(--glass-border);
+                                          border-radius: 24px;
+                                          padding: 40px 30px;
+                                          text-align: center;
+                                          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+                                          transition: transform 0.3s ease, box-shadow 0.3s ease;
+                            }
+
+                            .card:hover {
+                                          transform: translateY(-5px);
+                                          box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+                            }
+
+                            /* Profile Image Area */
+                            .profile-container {
+                                          width: 120px;
+                                          height: 120px;
+                                          margin: 0 auto 20px;
+                                          position: relative;
+                            }
+
+                            .profile-img {
+                                          width: 100%;
+                                          height: 100%;
+                                          border-radius: 50%;
+                                          object-fit: cover;
+                                          border: 3px solid rgba(255, 255, 255, 0.2);
+                                          padding: 4px;
+                                          background: rgba(255, 255, 255, 0.05);
+                            }
+
+                            .status-dot {
+                                          position: absolute;
+                                          bottom: 10px;
+                                          right: 10px;
+                                          width: 18px;
+                                          height: 18px;
+                                          background: #00ff88;
+                                          border: 3px solid #24243e;
+                                          /* Matches approximate bg */
+                                          border-radius: 50%;
+                                          box-shadow: 0 0 10px #00ff88;
+                            }
+
+                            /* Typography */
+                            h1 {
+                                          font-size: 2rem;
+                                          font-weight: 700;
+                                          margin-bottom: 5px;
+                                          letter-spacing: 0.5px;
+                                          background: linear-gradient(to right, white, #ccc);
+                                          -webkit-background-clip: text;
+                                          -webkit-text-fill-color: transparent;
+                            }
+
+                            .role {
+                                          font-size: 0.95rem;
+                                          color: var(--primary);
+                                          text-transform: uppercase;
+                                          letter-spacing: 2px;
+                                          margin-bottom: 20px;
+                                          font-weight: 500;
+                            }
+
+                            .bio {
+                                          font-size: 0.95rem;
+                                          line-height: 1.6;
+                                          color: rgba(255, 255, 255, 0.85);
+                                          margin-bottom: 30px;
+                            }
+
+                            /* Action Buttons */
+                            .actions {
+                                          display: flex;
+                                          gap: 15px;
+                                          justify-content: center;
+                                          margin-bottom: 30px;
+                            }
+
+                            .btn {
+                                          text-decoration: none;
+                                          padding: 12px 24px;
+                                          border-radius: 50px;
+                                          font-weight: 600;
+                                          transition: all 0.3s ease;
+                                          display: flex;
+                                          align-items: center;
+                                          gap: 8px;
+                                          font-size: 0.9rem;
+                            }
+
+                            .btn-primary {
+                                          background: linear-gradient(45deg, var(--secondary), #ff4b1f);
+                                          color: white;
+                                          box-shadow: 0 4px 15px rgba(255, 0, 80, 0.4);
+                            }
+
+                            .btn-primary:hover {
+                                          transform: scale(1.05);
+                                          box-shadow: 0 6px 20px rgba(255, 0, 80, 0.6);
+                            }
+
+                            .btn-outline {
+                                          background: transparent;
+                                          border: 1px solid rgba(255, 255, 255, 0.3);
+                                          color: white;
+                            }
+
+                            .btn-outline:hover {
+                                          background: rgba(255, 255, 255, 0.1);
+                                          border-color: white;
+                            }
+
+                            /* Social Links */
+                            .social-links {
+                                          display: flex;
+                                          justify-content: center;
+                                          gap: 20px;
+                                          margin-top: 20px;
+                                          border-top: 1px solid rgba(255, 255, 255, 0.1);
+                                          padding-top: 20px;
+                            }
+
+                            .social-link {
+                                          color: rgba(255, 255, 255, 0.6);
+                                          font-size: 1.4rem;
+                                          transition: all 0.3s ease;
+                            }
+
+                            .social-link:hover {
+                                          color: white;
+                                          transform: translateY(-3px);
+                            }
+
+                            .social-link.whatsapp:hover {
+                                          color: #25D366;
+                            }
+
+                            .social-link.linkedin:hover {
+                                          color: #0077b5;
+                            }
+
+                            .social-link.instagram:hover {
+                                          color: #E1306C;
+                            }
+
+                            .social-link.github:hover {
+                                          color: #ffffff;
+                            }
+
+                            /* Icon styling inside buttons */
+                            .btn i {
+                                          font-size: 1.1em;
+                            }
+              </style>
+</head>
+
+<body>
+
+              <!-- Background Decoration -->
+              <div class="orb orb-1"></div>
+              <div class="orb orb-2"></div>
+
+              <!-- Main Business Card -->
+              <div class="card">
+                            <div class="profile-container">
+                                          <!-- Placeholder for user image. User can replace 'user-avatar.png' -->
+                                          <img src="https://ui-avatars.com/api/?name=Mario&background=random&size=200"
+                                                        alt="Mario" class="profile-img">
+                                          <div class="status-dot" title="Disponibile"></div>
+                            </div>
+
+                            <h1>Mario</h1>
+                            <div class="role">Creative Web Designer</div>
+
+                            <p class="bio">
+                                          Trasformo idee in esperienze digitali memorabili.
+                                          Elegante, moderno e funzionale.
+                            </p>
+
+                            <div class="actions">
+                                          <a href="mailto:email@esempio.com" class="btn btn-primary">
+                                                        <i class="fas fa-envelope"></i> Contattami
+                                          </a>
+                                          <a href="#" class="btn btn-outline">
+                                                        <i class="fas fa-globe"></i> Portfolio
+                                          </a>
+                            </div>
+
+                            <div class="social-links">
+                                          <a href="#" class="social-link whatsapp" title="WhatsApp"><i
+                                                                      class="fab fa-whatsapp"></i></a>
+                                          <a href="#" class="social-link linkedin" title="LinkedIn"><i
+                                                                      class="fab fa-linkedin-in"></i></a>
+                                          <a href="#" class="social-link instagram" title="Instagram"><i
+                                                                      class="fab fa-instagram"></i></a>
+                                          <a href="#" class="social-link github" title="GitHub"><i
+                                                                      class="fab fa-github"></i></a>
+                            </div>
+              </div>
+
+</body>
+
+</html>
