@@ -44,51 +44,36 @@ function initMenuScroll() {
     ScrollTrigger.matchMedia({
 
         // DESKTOP: ScrollTrigger Pinning + Arrows
-        // DESKTOP: Draggable + Arrows (No Pinning)
+        // DESKTOP: Mouse Move Scroll (Automatic)
         "(min-width: 769px)": function () {
             const maxScroll = menuTrack.scrollWidth - window.innerWidth;
 
-            // 1. Enable Draggable for Desktop
-            Draggable.create(menuTrack, {
-                type: "x",
-                bounds: { minX: -maxScroll, maxX: 0 },
-                inertia: true,
-                edgeResistance: 0.5,
-                cursor: "grab",
-                activeCursor: "grabbing"
-            });
+            // Mouse Move Handler
+            function onMouseMove(e) {
+                // Calculate percentage of mouse position across width (0 to 1)
+                const progress = e.clientX / window.innerWidth;
 
-            // 2. Arrow Navigation (Moves track X instead of Window Scroll)
-            const slideAmount = window.innerWidth * 0.4; // Scroll 40% of screen per click
+                // Calculate target scroll position
+                // progress 0 (left) -> x: 0
+                // progress 1 (right) -> x: -maxScroll
+                const targetX = -progress * maxScroll;
 
-            const prevBtn = document.querySelector(".prev-arrow");
-            if (prevBtn) {
-                // Remove previous event listeners if any (though matchMedia cleans up)
-                prevBtn.onclick = (e) => {
-                    e.preventDefault();
-                    const currentX = gsap.getProperty(menuTrack, "x");
-                    const newX = Math.min(currentX + slideAmount, 0); // Clamp at 0
-                    gsap.to(menuTrack, {
-                        x: newX,
-                        duration: 0.5,
-                        ease: "power2.out"
-                    });
-                };
+                // Smoothly animate to target position
+                gsap.to(menuTrack, {
+                    x: targetX,
+                    duration: 1.2, // Smooth "buttery" feel
+                    ease: "power3.out",
+                    overwrite: "auto"
+                });
             }
 
-            const nextBtn = document.querySelector(".next-arrow");
-            if (nextBtn) {
-                nextBtn.onclick = (e) => {
-                    e.preventDefault();
-                    const currentX = gsap.getProperty(menuTrack, "x");
-                    const newX = Math.max(currentX - slideAmount, -maxScroll); // Clamp at maxScroll
-                    gsap.to(menuTrack, {
-                        x: newX,
-                        duration: 0.5,
-                        ease: "power2.out"
-                    });
-                };
-            }
+            // Add Listener
+            menuSection.addEventListener("mousemove", onMouseMove);
+
+            // Cleanup function provided by ScrollTrigger.matchMedia
+            return () => {
+                menuSection.removeEventListener("mousemove", onMouseMove);
+            };
         },
 
         // MOBILE: Draggable (Touch & Scrollbar)
