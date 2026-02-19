@@ -289,6 +289,8 @@ h2 {
     justify-content: center;
     /* Centers the two windows vertically */
     padding-top: 5vh;
+    gap: 5vh;
+    /* Added gap between windows */
 }
 
 .menu-intro {
@@ -304,9 +306,8 @@ h2 {
 .menu-window {
     width: 100%;
     height: 40vh;
-    /* Each window takes ~40% of height */
+    /* Adjusted height */
     overflow: hidden;
-    /* Hide scrollbars */
     position: relative;
     display: flex;
     align-items: center;
@@ -317,8 +318,7 @@ h2 {
 .menu-track {
     display: flex;
     padding-left: 10vw;
-    gap: 5vw;
-    /* Increased gap */
+    gap: 4vw;
     width: max-content;
     touch-action: pan-y;
     will-change: transform;
@@ -340,24 +340,24 @@ h2 {
 }
 
 .menu-card {
-    flex: 0 0 30vw;
-    /* Wider cards */
-    min-width: 350px;
-    /* Minimum width for readability */
-    height: 60vh;
+    flex: 0 0 22vw;
+    /* Narrower cards for square images */
+    min-width: 300px;
+    height: auto;
+    /* Remove fixed height */
     position: relative;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
-    padding-right: 3rem;
-    /* More padding inside card */
+    padding-right: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Align to top */
 }
 
 .title-card {
     border: none;
-    flex: 0 0 20vw;
-    /* Slightly wider title card */
+    flex: 0 0 18vw;
+    justify-content: center;
 }
 
 .title-card h2 {
@@ -374,20 +374,31 @@ h2 {
 }
 
 .dish-card .card-image {
-    height: 45%;
-    /* Reduced image height to give space to text */
     width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    /* SQUARE IMAGES */
     overflow: hidden;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     border-radius: 4px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    /* DEPTH */
+    transform: perspective(1000px) rotateY(5deg);
+    /* Subtle 3D turn */
+    transition: all 0.5s ease;
+}
+
+.dish-card:hover .card-image {
+    transform: perspective(1000px) rotateY(0deg) scale(1.02);
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.7);
 }
 
 .dish-card img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    filter: grayscale(0.8) contrast(1.1);
+    filter: grayscale(0.6) contrast(1.1);
+    transition: filter 0.5s;
 }
 
 .dish-card:hover img {
@@ -406,36 +417,21 @@ h2 {
 }
 
 .card-content h3 {
-    font-size: 1.5rem;
-    /* Larger title */
-    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
     color: var(--accent-color);
 }
 
 .card-content p {
-    font-size: 1.1rem;
-    /* Larger description */
-    line-height: 1.6;
-    /* Better line height */
-    margin-bottom: 1rem;
-}
-
-font-family: var(--font-heading);
-font-size: 1.5rem;
-/* Adjusted size */
-margin-bottom: 0.5rem;
-color: #fff;
-}
-
-.card-content p {
-    font-style: italic;
-    color: #aaa;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    color: #ddd;
 }
 
 .price {
     display: block;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     font-size: 1.2rem;
     font-family: var(--font-heading);
     color: var(--accent-color);
