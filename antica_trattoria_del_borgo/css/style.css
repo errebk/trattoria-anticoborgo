@@ -278,24 +278,55 @@ h2 {
     height: 8px;
 }
 
-.menu-scrollbar-thumb {
-    width: 10%;
-    /* Initial width */
-    height: 100%;
-    background: var(--accent-color);
-    border-radius: 2px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: grab;
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-    pointer-events: auto;
-    /* Ensure clickable */
-    touch-action: none;
+/* Menu Section - Split Window Layout */
+#menu-section {
+    background-color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centers the two windows vertically */
+    padding-top: 5vh;
 }
 
-.menu-scrollbar-thumb:active {
-    cursor: grabbing;
+.menu-intro {
+    position: absolute;
+    top: 5vh;
+    left: 10vw;
+    z-index: 10;
+    pointer-events: none;
+    /* Let clicks pass through to menu */
+}
+
+/* Individual Scrolling Window */
+.menu-window {
+    width: 100%;
+    height: 40vh;
+    /* Each window takes ~40% of height */
+    overflow: hidden;
+    /* Hide scrollbars */
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-track {
+    display: flex;
+    padding-left: 10vw;
+    gap: 2rem;
+    width: max-content;
+    touch-action: pan-y;
+    will-change: transform;
+}
+
+/* Hide old scrollbar elements */
+.menu-scrollbar-container,
+.menu-scrollbar-track,
+.menu-scrollbar-thumb {
+    display: none !important;
 }
 
 .scroll-label {
@@ -304,17 +335,6 @@ h2 {
     color: #666;
     letter-spacing: 2px;
     text-transform: uppercase;
-}
-
-.menu-track {
-    display: flex;
-    padding-left: 10vw;
-    gap: 2rem;
-    width: max-content;
-    /* Force correct scroll width */
-    touch-action: pan-y;
-    /* Allow vertical scroll, let Draggable handle horizontal */
-    /* Reduced gap for better density */
 }
 
 .menu-card {
