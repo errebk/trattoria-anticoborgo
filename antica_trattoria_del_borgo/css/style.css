@@ -517,15 +517,27 @@ h2 {
     }
 
     /* Menu Section Titles Mobile Override */
+    .title-card {
+        flex: 0 0 auto !important;
+        aspect-ratio: 1 / 1;
+        width: auto !important;
+        /* Let aspect ratio defines width based on height */
+        justify-content: center;
+        align-items: center;
+    }
+
     .title-card h2 {
-        font-size: 25vw !important;
-        /* Make sure they are readable */
-        line-height: 1.1;
+        font-size: 18vw !important;
+        /* Adjusted for square container */
+        line-height: 1;
+        word-break: break-word;
+        /* Prevent overflow */
     }
 
     .title-card .smaller {
-        font-size: 8vw !important;
-        /* Make subtitle readable too */
+        font-size: 6vw !important;
+        display: block;
+        margin-top: 1rem;
     }
 }
 
