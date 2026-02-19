@@ -168,3 +168,19 @@ gsap.to(".floating-img", {
         scrub: 1
     }
 });
+
+// Menu Toggle Scroll Logic
+const menuToggle = document.querySelector(".menu-toggle");
+if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+        gsap.to(window, {
+            scrollTo: {
+                y: "#menu-section",
+                offsetY: 80,
+                autoKill: true
+            },
+            duration: 1.5,
+            ease: "power2.inOut"
+        });
+    });
+}
