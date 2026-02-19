@@ -231,15 +231,65 @@ h2 {
     position: relative;
 }
 
+/* Scrollbar hidden on desktop, shown on mobile */
 .menu-scrollbar-container {
     position: absolute;
     bottom: 5vh;
     left: 10vw;
     width: 60vw;
     z-index: 100;
-    display: flex;
+    display: none;
+    /* Hidden by default (Desktop) */
     flex-direction: column;
     gap: 10px;
+}
+
+/* Arrows Styles */
+.menu-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 101;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.menu-arrow:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000;
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-arrow {
+    left: 2rem;
+}
+
+.next-arrow {
+    right: 2rem;
+}
+
+@media (max-width: 768px) {
+    .menu-arrow {
+        display: none;
+        /* Hide arrows on mobile */
+    }
+
+    .menu-scrollbar-container {
+        display: flex;
+        /* Show scrollbar on mobile */
+    }
 }
 
 .menu-scrollbar-track {
@@ -446,7 +496,9 @@ h2 {
     font-family: var(--font-subheading);
     font-size: 2vw;
     text-decoration: underline;
+    text-decoration-color: var(--accent-color);
     text-underline-offset: 10px;
+    color: var(--text-color);
     transition: color 0.3s;
 }
 

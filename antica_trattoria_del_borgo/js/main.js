@@ -42,39 +42,112 @@ gsap.registerPlugin(Draggable);
 
 // Initialize Scrollbar logic
 // Initialize Scrollbar logic
+// Initialize Scrollbar logic
 function initMenuScroll() {
-    // Calculate limits
-    // We use max-content in CSS to ensure scrollWidth is correct
-    const maxScroll = menuTrack.scrollWidth - window.innerWidth;
-    const trackWidth = scrollTrack.offsetWidth;
-    const thumbWidth = scrollThumb.offsetWidth;
-    const maxThumbMove = trackWidth - thumbWidth;
+    ScrollTrigger.matchMedia({
 
-    // Create Draggable for the thumb
-    Draggable.create(scrollThumb, {
-        type: "x",
-        bounds: scrollTrack, // Use the track element as bounds
-        inertia: false,
-        cursor: "grab",
-        activeCursor: "grabbing",
-        onDrag: function () {
-            // "this" refers to the Draggable instance
-            const progress = this.x / maxThumbMove;
+        // DESKTOP: ScrollTrigger Pinning + Arrows
+        "(min-width: 769px)": function () {
+            // Horizontal Scroll Animation
+            const maxScroll = menuTrack.scrollWidth - window.innerWidth;
 
-            // Move the menu track based on progress
-            gsap.set(menuTrack, {
-                x: -progress * maxScroll
+            const scrollTween = gsap.to(menuTrack, {
+                x: -maxScroll,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#menu-section",
+                    pin: true,
+                    scrub: 1, // Momentum scroll
+                    start: "top top",
+                    end: () => "+=" + maxScroll, // Scroll distance equals content width
+                    invalidateOnRefresh: true,
+                    id: "menuScroll"
+                }
             });
+
+            // Arrow Navigation Logic
+            const scrollAmount = window.innerHeight; // Scroll one viewport height per click
+
+            const prevBtn = document.querySelector(".prev-arrow");
+            if (prevBtn) {
+                prevBtn.onclick = () => {
+                    gsap.to(window, {
+                        scrollTo: {
+                            y: window.scrollY - scrollAmount,
+                            autoKill: true
+                        },
+                        duration: 1,
+                        ease: "power2.out"
+                    });
+                };
+            }
+
+            const nextBtn = document.querySelector(".next-arrow");
+            if (nextBtn) {
+                nextBtn.onclick = () => {
+                    gsap.to(window, {
+                        scrollTo: {
+                            y: window.scrollY + scrollAmount,
+                            autoKill: true
+                        },
+                        duration: 1,
+                        ease: "power2.out"
+                    });
+                };
+            }
+        },
+
+        // MOBILE: Draggable (Touch & Scrollbar)
+        "(max-width: 768px)": function () {
+            // Force reset from pinning
+            gsap.set(menuTrack, { x: 0, clearProps: "all" });
+
+            const maxScroll = menuTrack.scrollWidth - window.innerWidth;
+            const trackWidth = scrollTrack.offsetWidth;
+            const thumbWidth = scrollThumb.offsetWidth;
+            const maxThumbMove = trackWidth - thumbWidth;
+
+            if (maxScroll <= 0) return;
+
+            // Setup Draggable for Thumb
+            Draggable.create(scrollThumb, {
+                type: "x",
+                bounds: scrollTrack,
+                inertia: false,
+                cursor: "grab",
+                activeCursor: "grabbing",
+                onDrag: function () {
+                    const progress = this.x / maxThumbMove;
+                    gsap.set(menuTrack, { x: -progress * maxScroll });
+                },
+                onPress: () => gsap.killTweensOf(menuTrack)
+            });
+
+            // Setup Draggable for Content Track (Touch)
+            Draggable.create(menuTrack, {
+                type: "x",
+                bounds: { minX: -maxScroll, maxX: 0 },
+                inertia: true,
+                edgeResistance: 0.65,
+                cursor: "default",
+                activeCursor: "grabbing",
+                onDrag: syncThumb,
+                onThrowUpdate: syncThumb,
+                onPress: () => gsap.killTweensOf(scrollThumb)
+            });
+
+            function syncThumb() {
+                let progress = this.x / -maxScroll;
+                progress = Math.min(Math.max(progress, 0), 1);
+                gsap.set(scrollThumb, { x: progress * maxThumbMove });
+            }
         }
     });
 }
 
 // Initialize on load and refresh on resize
 window.addEventListener("load", initMenuScroll);
-window.addEventListener("resize", () => {
-    // Optional: Reset or recalculate on resize
-    initMenuScroll();
-});
+// Resize handled automatically by ScrollTrigger.matchMedia
 
 // Parallax Effects
 gsap.to(".hero-image-wrapper", {
