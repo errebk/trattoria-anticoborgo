@@ -279,18 +279,23 @@ h2 {
 }
 
 /* Menu Section - Split Window Layout */
+/* Menu Section - Split Window Layout */
 #menu-section {
     background-color: var(--secondary-color);
+    background: radial-gradient(circle at center, #2e2e2e 0%, #151515 100%);
+    /* Professional subtle gradient */
     position: relative;
     overflow: hidden;
-    height: 100vh;
+    min-height: 100vh;
+    /* Allow expanding if needed */
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Centers the two windows vertically */
-    padding-top: 5vh;
-    gap: 5vh;
-    /* Added gap between windows */
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    gap: 15vh;
+    /* Significant gap for separation */
 }
 
 .menu-intro {
@@ -299,19 +304,19 @@ h2 {
     left: 10vw;
     z-index: 10;
     pointer-events: none;
-    /* Let clicks pass through to menu */
 }
 
 /* Individual Scrolling Window */
 .menu-window {
     width: 100%;
-    height: 40vh;
-    /* Adjusted height */
+    height: 35vh;
+    /* Slightly reduced height to accommodate gap */
     overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle separator */
     z-index: 20;
 }
 
@@ -334,24 +339,21 @@ h2 {
 .scroll-label {
     font-family: var(--font-subheading);
     font-size: 0.8rem;
-    color: #666;
+    color: #888;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .menu-card {
     flex: 0 0 22vw;
-    /* Narrower cards for square images */
     min-width: 300px;
     height: auto;
-    /* Remove fixed height */
     position: relative;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
     padding-right: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* Align to top */
 }
 
 .title-card {
@@ -377,28 +379,28 @@ h2 {
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
-    /* SQUARE IMAGES */
     overflow: hidden;
     margin-bottom: 1.5rem;
-    border-radius: 4px;
-    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.6),
-        -5px -5px 15px rgba(255, 255, 255, 0.05);
-    /* ENHANCED DEPTH */
+    border-radius: 6px;
+    /* Slightly softer corners */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+        0 10px 15px rgba(0, 0, 0, 0.3);
+    /* Professional diffused shadow */
     transform: perspective(1000px) rotateY(5deg);
-    /* Subtle 3D turn */
-    transition: all 0.5s ease;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .dish-card:hover .card-image {
-    transform: perspective(1000px) rotateY(0deg) scale(1.02);
-    box-shadow: 25px 25px 60px rgba(0, 0, 0, 0.8);
+    transform: perspective(1000px) rotateY(0deg) scale(1.03);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6),
+        0 15px 25px rgba(0, 0, 0, 0.4);
 }
 
 .dish-card img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    filter: grayscale(0.6) contrast(1.1);
+    filter: grayscale(0.5) contrast(1.1);
     transition: filter 0.5s;
 }
 
