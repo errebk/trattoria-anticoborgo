@@ -460,6 +460,8 @@ h2 {
         /* Wider cards on mobile */
         height: 50vh;
         /* Shorter cards */
+        margin-right: 15px;
+        /* Add explicit margin for spacing */
     }
 
     .mobile-only {
@@ -468,32 +470,43 @@ h2 {
     }
 
     .hero-title {
-        font-size: 12vw;
-        /* Larger title on mobile */
+        font-size: 25vw;
+        /* Much larger for ATB */
     }
 
     .manifesto {
-        padding: 5vh 5vw;
+        padding: 10vh 2rem;
+        /* Better horizontal spacing */
     }
 
     .manifesto-text {
-        font-size: 1.4rem;
-        /* Readable font size */
+        font-size: 1.2rem;
+        text-align: left;
+        /* Easier to read on mobile */
     }
 
     .drop-cap {
         font-size: 4rem;
+        margin-top: 5px;
+        /* Align better */
     }
 
     .floating-img {
-        width: 40vw;
-        /* Larger floating image */
+        width: 50vw;
+        opacity: 0.4;
+        /* Fade it out a bit more so text is readable */
     }
 
     .menu-scrollbar-container {
         width: 80vw;
         left: 10vw;
-        bottom: 10vh;
+        bottom: 15vh;
+        /* Move up slightly */
+    }
+
+    .email-link {
+        font-size: 8vw;
+        /* Larger tap target */
     }
 }
 
