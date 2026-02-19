@@ -14,8 +14,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
-    /* Custom cursor */
 }
 
 body {
@@ -39,30 +37,7 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Custom Cursor */
-.cursor {
-    width: 10px;
-    height: 10px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 20001;
-    mix-blend-mode: difference;
-    transform: translate(-50%, -50%);
-}
-
-.cursor-follower {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--text-color);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 20002;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s;
-}
+/* Custom Cursor REMOVED */
 
 /* Loader */
 .loader {
@@ -411,12 +386,44 @@ h2 {
 
 @media (max-width: 768px) {
     .menu-card {
-        flex: 0 0 70vw;
-        /* Bigger cards on mobile */
+        flex: 0 0 85vw;
+        /* Wider cards on mobile */
+        height: 50vh;
+        /* Shorter cards */
     }
 
     .mobile-only {
         display: block;
+        font-size: 1.2rem;
+    }
+
+    .hero-title {
+        font-size: 12vw;
+        /* Larger title on mobile */
+    }
+
+    .manifesto {
+        padding: 5vh 5vw;
+    }
+
+    .manifesto-text {
+        font-size: 1.4rem;
+        /* Readable font size */
+    }
+
+    .drop-cap {
+        font-size: 4rem;
+    }
+
+    .floating-img {
+        width: 40vw;
+        /* Larger floating image */
+    }
+
+    .menu-scrollbar-container {
+        width: 80vw;
+        left: 10vw;
+        bottom: 10vh;
     }
 }
 

@@ -1,34 +1,7 @@
 // Initialize GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// Custom Cursor Logic
-const cursor = document.querySelector('.cursor');
-const follower = document.querySelector('.cursor-follower');
 
-document.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.1
-    });
-    gsap.to(follower, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.3
-    });
-});
-
-// Hover effects for cursor
-document.querySelectorAll('a, .menu-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        gsap.to(cursor, { scale: 0.5 });
-        gsap.to(follower, { scale: 1.5, borderColor: '#d4af37' });
-    });
-    el.addEventListener('mouseleave', () => {
-        gsap.to(cursor, { scale: 1 });
-        gsap.to(follower, { scale: 1, borderColor: '#e0e0e0' });
-    });
-});
 
 // Loading Animation
 const tlLoader = gsap.timeline();
