@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Taverna del Gusto | Editorial Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Lato:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=mobile_v25">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="loading">
+
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+
+
+
+    <!-- Intro Loader -->
+    <div class="loader">
+        <div class="loader-text">
+            <span>La</span>
+            <span>Taverna</span>
+            <span>del</span>
+            <span>Gusto</span>
+        </div>
+        <div class="loader-progress"></div>
+    </div>
+
+    <!-- Navigation (Minimal) -->
+    <!-- Top Bar Navigation -->
+    <header class="top-bar">
+        <div class="logo">LT/G</div>
+        <div class="menu-toggle">Menu</div>
+    </header>
+
+    <!-- Main Scroll Container -->
+    <main class="scroll-container">
+
+        <!-- Hero Section (Sticky) -->
+        <section class="section hero" data-scroll-section>
+            <div class="hero-image-wrapper">
+                <img src="images/trattoria_interior.png" alt="Interno" class="hero-image"
+                    onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop'">
+            </div>
+            <h1 class="hero-title">
+                <span class="line line-1">LTG</span>
+                <span class="line line-3">&mdash; Dal 1920</span>
+            </h1>
+            <div class="scroll-indicator">
+                <span>Scorri</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <!-- Manifesto (Text Heavy) -->_
+        <section class="section manifesto" data-scroll-section>
+            <div class="content-wrapper">
+                <h2 class="outline-text">Tradizione</h2>
+                <div class="manifesto-text">
+                    <p class="drop-cap">N</p>
+                    <p>Non siamo solo un ristorante. Siamo custodi di un tempo perduto. Dove il sugo cuoce per dodici
+                        ore e il vino macchia le tovaglie.</p <p>La nostra cucina è un atto di resistenza contro la
+                    fretta.</p>
+                </div>
+                <!-- <div class="floating-img img-1">
+                    <img src="images/pasta_dish.png" alt="Pasta"
+                        onerror="this.src='https://images.unsplash.com/photo-1551183053-bf91b1d81161?q=80&w=2000&auto=format&fit=crop'">
+                </div> -->
+            </div>
+        </section>_____
+
+        <!-- Menu (Horizontal Scroll inside Vertical) -->
+        <section class="section menu-horizontal" id="menu-section">
+            <div class="menu-intro">
+                <h2>Il Nostro Menu</h2>
+                <div class="scroll-label">Muovi il cursore o trascina</div>
+            </div>
+
+            <!-- ROW 1: PRIMI -->
+            <div class="menu-window">
+                <div class="menu-track">
+                    <!-- Title Card -->
+                    <div class="menu-card title-card">
+                        <h2>I Primi<br><span class="smaller">Della Tradizione</span></h2>
+                    </div>
+
+                    <!-- Dishes 1-5 -->
+                    <div class="menu-card dish-card">
+                        <div class="card-image">
+                            <img src="images/dish1.png" alt="Cappelletti"
+                                onerror="this.src='https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?q=80&w=2000&auto=format&fit=crop'">
+                        </div>
+                        <div class="card-content">
+                            <h3>01. Cappelletti in Brodo</h3>
+                            <p>Pasta fresca chiusa a mano, ripiena di stracotto, in brodo di cappone.</p>
+                            <span class="price">18</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-card dish-card">
+                        <div class="card-image">
+                            <img src="images/dish2.png" alt="Tagliatelle"
+                                onerror="this.src='https://images.unsplash.com/photo-1626844131082-256783844137?q=80&w=2000&auto=format&fit=crop'">
+                        </div>
+                        <div class="card-content">
+                            <h3>02. Tagliatelle al Ragù</h3>
+                            <p>Sfoglia ruvida tirata al mattarello, ragù bolognese a lenta cottura.</p>
+                            <span class="price">16</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-card dish-card">
+                        <div class="card-image">
+                            <img src="images/dish3.png" alt="Tortelloni"
+                                onerror="this.src='https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2000&auto=format&fit=crop'">
+                        </div>
+                        <div class="card-content">
+                            <h3>03. Tortelloni Burro e Salvia</h3>
+                            <p>Ripieni di ricotta di pecora e spinaci, saltati con burro di montagna.</p>
+                            <span class="price">17</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-card dish-card">
+                        <div class="card-image">
+                            <img src="images/dish4.png" alt="Tartufo"
+                                onerror="this.src='https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=2000&auto=format&fit=crop'">
+                        </div>
+                        <div class="card-content">
+                            <h3>04. Tartufo Nero</h3>
+                            <p>Tagliatelle all'uovo, Burro di malga, Tartufo nero estivo.</p>
+                            <span class="price">22</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-card dish-card">
+                        <div class="card-image">
+                            <img src="images/dish5.png" alt="Ravioli"
+                                onerror="this.src='https://images.unsplash.com/photo-1595295333158-4742f28fbd85?q=80&w=2000&auto=format&fit=crop'">
+                        </div>
+                        <div class="card-content">
+                            <h3>05. Ravioli del Plin</h3>
+                            <p>Ripieni ai tre arrosti, serviti nel loro sugo di cottura.</p>
+                            <span class="price">18</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 2: SECONDI -->
+            <div class="menu-window">
+                <div class="menu-track">
+                    <!-- Title Card -->
+                    <div class="menu-card title-card">
+                        <h2>I Secondi<br><span class="smaller">Di Terra</span></h2>
+                    </div>
+
+                    <!-- Dishes 6-10 -->
+                    <div class="menu-card dish-card">
+                        <div class="card-image">
+                            <img src="images/dish6.png" alt="Brasato"
+                                onerror="this.src='https://loremflickr.com/2000/1333/braised,beef'">
+                        </div>
+                        <div class="card-content">
+                            <h3>06. Brasato al Barolo</h3>
+                            <p>Manzo cotto 12 ore, servito con polenta morbida.</p>
+                            <span class="price">24</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-card dish-card">
+                        <div class="card-image">
+                            <img src="images/dish7.png" alt="Tagliata"
+                                onerror="this.src='https://images.unsplash.com/photo-1546241072-48010ad2862c?q=80&w=2000&auto=format&fit=crop'">
+                        </div>
+                        <div class="card-content">
+                            <h3>07. Tagliata di Manzo</h3>
+                            <p>Rucola, pachino confit e scaglie di Grana Padano.</p>
+                            <span class="price">22</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-card dish-card">
+                        <div class="card-image">
+                            <img src="images/dish8.png" alt="Ossobuco"
+                                onerror="this.src='https://images.unsplash.com/photo-1544025162-d76690b67f11?q=80&w=2000&auto=format&fit=crop'">
+                        </div>
+                        <div class="card-content">
+                            <h3>08. Ossobuco</h3>
+                            <p>Alla milanese con risotto allo zafferano.</p>
+                            <span class="price">26</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-card dish-card">
+                        <div class="card-image">
+                            <img src="images/dish9.png" alt="Cotoletta"
+                                onerror="this.src='https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=2000&auto=format&fit=crop'">
+                        </div>
+                        <div class="card-content">
+                            <h3>09. Orecchia di Elefante</h3>
+                            <p>Cotoletta di vitello impanata nel burro chiarificato.</p>
+                            <span class="price">28</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-card dish-card">
+                        <div class="card-image">
+                            <img src="images/dish10.png" alt="Polpo"
+                                onerror="this.src='https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=2000&auto=format&fit=crop'">
+                        </div>
+                        <div class="card-content">
+                            <h3>10. Polpo Arrostito</h3>
+                            <p>Su crema di patate e paprika dolce.</p>
+                            <span class="price">25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservation (Minimalist) -->
+        <section class="section reservation" data-scroll-section>
+            <div class="reservation-content">
+                <h2>Prenota<br>il Tuo<br>Tavolo</h2>
+                <a href="mailto:prenota@latavernadelgusto.it" class="email-link">prenota@latavernadelgusto.it</a>
+                <div class="footer-info">
+                    <span>Via dei Sapori, 42 - Roma</span>
+                    <span>+39 06 1234 5678</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>--------
