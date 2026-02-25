@@ -24,7 +24,7 @@ body {
     width: 100vw;
 }
 
-/* Noise Overlay */
+/* Effetto Rumore */
 .noise {
     position: fixed;
     top: 0;
@@ -39,7 +39,7 @@ body {
 
 /* Custom Cursor REMOVED */
 
-/* Loader */
+/* Caricamento */
 .loader {
     position: fixed;
     top: 0;
@@ -71,7 +71,7 @@ body {
     margin-top: 20px;
 }
 
-/* Top Bar Layout */
+/* Layout Barra Superiore */
 .top-bar {
     position: fixed;
     top: 0;
@@ -104,7 +104,7 @@ body {
     color: var(--accent-color);
 }
 
-/* Adjust Main Layout */
+/* Regolazione Layout Principale */
 .scroll-container {
     padding-top: 80px;
     /* Push content down */
@@ -112,7 +112,7 @@ body {
     /* Reset sidebar padding */
 }
 
-/* Typography Utilities */
+/* Utilità Tipografia */
 h1,
 h2 {
     font-family: var(--font-heading);
@@ -120,7 +120,7 @@ h2 {
     line-height: 0.9;
 }
 
-/* Hero Section */
+/* Sezione Hero */
 .hero {
     height: calc(100vh - 80px);
     /* Adjust height for top bar */
@@ -187,7 +187,7 @@ h2 {
     background: var(--text-color);
 }
 
-/* Manifesto Section */
+/* Sezione Manifesto */
 .manifesto {
     min-height: 100vh;
     display: flex;
@@ -238,7 +238,7 @@ h2 {
     transform: rotate(5deg);
 }
 
-/* Horizontal Menu Section */
+/* Sezione Menu Orizzontale */
 .menu-horizontal {
     height: 100vh;
     overflow: hidden;
@@ -278,8 +278,8 @@ h2 {
     height: 8px;
 }
 
-/* Menu Section - Split Window Layout */
-/* Menu Section - Split Window Layout */
+/* Sezione Menu - Layout Finestra Divisa */
+/* Sezione Menu - Layout Finestra Divisa */
 #menu-section {
     background-color: var(--secondary-color);
     background: radial-gradient(circle at center, #2e2e2e 0%, #151515 100%);
@@ -447,7 +447,7 @@ h2 {
     color: var(--accent-color);
 }
 
-/* Mobile Hint */
+/* Suggerimento Mobile */
 .mobile-only {
     display: none;
     position: absolute;
@@ -465,7 +465,7 @@ h2 {
         scrollbar-width: none;
         padding: 3rem 0;
     }
-    
+
     .menu-window::-webkit-scrollbar {
         display: none;
     }
@@ -473,6 +473,8 @@ h2 {
     .menu-track {
         padding-left: 5vw;
         padding-right: 5vw;
+        touch-action: pan-x pan-y;
+        /* Permette finalmente lo scroll nativo su tocco orizzontale */
     }
 
     .menu-card {
@@ -568,7 +570,7 @@ h2 {
     }
 }
 
-/* Reservation Section */
+/* Sezione Prenotazione */
 .reservation {
     height: 100vh;
     display: flex;

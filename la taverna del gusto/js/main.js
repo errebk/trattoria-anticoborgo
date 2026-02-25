@@ -1,7 +1,7 @@
-// Initialize GSAP ScrollTrigger
+// Inizializza GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger, Draggable, ScrollToPlugin);
 
-// Loading Animation
+// Animazione di Caricamento
 const tlLoader = gsap.timeline();
 
 tlLoader.to('.loader-text span', {
@@ -21,7 +21,7 @@ tlLoader.to('.loader-text span', {
         duration: 1,
         ease: 'power2.inOut',
         onComplete: () => {
-            // Force refresh after loader finishes to ensure correct pinning positions
+            // Forza l'aggiornamento dopo il caricamento per assicurare le corrette posizioni di "pin"
             ScrollTrigger.refresh();
         }
     })
@@ -33,7 +33,7 @@ tlLoader.to('.loader-text span', {
         ease: 'power3.out'
     }, "-=0.5");
 
-// Horizontal Scroll for Menu (Multi-Window)
+// Scroll Orizzontale per il Menu (Multi-Finestra)
 function initMenuScroll() {
     const menuWindows = document.querySelectorAll(".menu-window");
 
@@ -43,19 +43,19 @@ function initMenuScroll() {
 
         ScrollTrigger.matchMedia({
 
-            // DESKTOP: Independent Mouse Move Scroll per Window
+            // DESKTOP: Scroll Indipendente col Movimento del Mouse per Finestra
             "(min-width: 769px)": function () {
                 const maxScroll = track.scrollWidth - window.innerWidth;
 
-                // Mouse Move Handler specific to this window
+                // Gestore Movimento Mouse specifico per questa finestra
                 function onMouseMove(e) {
-                    // Calculate percentage of mouse position across width (0 to 1)
+                    // Calcola la percentuale della posizione del mouse sulla larghezza (da 0 a 1)
                     const progress = e.clientX / window.innerWidth;
 
-                    // Calculate target scroll position
+                    // Calcola la posizione di scroll di destinazione
                     const targetX = -progress * maxScroll;
 
-                    // Smoothly animate ONLY this track
+                    // Anima in modo fluido SOLO questa traccia
                     gsap.to(track, {
                         x: targetX,
                         duration: 1.2,
@@ -64,8 +64,8 @@ function initMenuScroll() {
                     });
                 }
 
-                // Add Listener to this WINDOW specifically
-                // Users must hover OVER the specific row to scroll it
+                // Aggiungi Listener in modo specifico a questa FINESTRA
+                // Gli utenti devono passare sopra la riga specifica per scorrerla
                 windowEl.addEventListener("mousemove", onMouseMove);
 
                 return () => {
@@ -73,9 +73,9 @@ function initMenuScroll() {
                 };
             },
 
-            // MOBILE: Native horizontal scroll for fluidity
+            // MOBILE: Scroll orizzontale nativo per fluidità
             "(max-width: 768px)": function () {
-                // Reset any GSAP transforms and let native CSS scroll take over
+                // Resetta le trasformazioni GSAP e passa allo scroll nativo CSS
                 gsap.set(track, { x: 0, clearProps: "all" });
 
                 const draggables = Draggable.get(track);
@@ -85,11 +85,11 @@ function initMenuScroll() {
     });
 }
 
-// Initialize on load and refresh on resize
+// Inizializza al caricamento e aggiorna al ridimensionamento
 window.addEventListener("load", initMenuScroll);
-// Resize handled automatically by ScrollTrigger.matchMedia
+// Il ridimensionamento è gestito in automatico da ScrollTrigger.matchMedia
 
-// Parallax Effects
+// Effetti Parallasse
 gsap.to(".hero-image-wrapper", {
     yPercent: 30,
     ease: "none",
@@ -103,7 +103,7 @@ gsap.to(".hero-image-wrapper", {
 
 
 
-// Menu Toggle Scroll Logic
+// Logica Scroll Toggle Menu
 const menuToggle = document.querySelector(".menu-toggle");
 if (menuToggle) {
     menuToggle.addEventListener("click", () => {
