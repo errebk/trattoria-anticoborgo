@@ -458,12 +458,16 @@ h2 {
 
 @media (max-width: 768px) {
     .menu-window {
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
+        display: flex;
+        align-items: flex-start;
+        /* Changed from center */
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-snap-type: x mandatory !important;
+        scrollbar-width: none !important;
         padding: 3rem 0;
+        width: 100vw;
     }
 
     .menu-window::-webkit-scrollbar {
@@ -471,9 +475,12 @@ h2 {
     }
 
     .menu-track {
+        display: flex;
+        flex-wrap: nowrap;
+        width: max-content !important;
         padding-left: 5vw;
         padding-right: 5vw;
-        touch-action: pan-x pan-y;
+        touch-action: pan-x pan-y !important;
         /* Permette finalmente lo scroll nativo su tocco orizzontale */
     }
 
